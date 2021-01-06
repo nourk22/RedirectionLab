@@ -2,34 +2,40 @@ import java.util.*;
 
 public class PigLatin{
   public static String pigLatinSimple(String s){
+    String lower = s.toLowerCase();
+
     String ans = "";
-    if (s.charAt(0)=='a' || s.charAt(0)=='e' || s.charAt(0)=='i' || s.charAt(0)=='o' || s.charAt(0)=='u'){
-      ans = s + "hay";
+    if (lower.charAt(0)=='a' || lower.charAt(0)=='e' || lower.charAt(0)=='i' || lower.charAt(0)=='o' || lower.charAt(0)=='u'){
+      ans = lower + "hay";
     }else{
-      ans = s.substring(1) + s.charAt(0) + "ay";
+      ans = lower.substring(1) + lower.charAt(0) + "ay";
     }
     return ans;
   }
 
   public static String pigLatin(String s){
+    String lower = s.toLowerCase();
+
     String[] digraphs = {"bl", "br", "ch", "ck", "cl", "cr", "dr", "fl", "fr", "gh", "gl", "gr", "ng", "ph", "pl", "pr", "qu", "sc", "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th", "tr", "tw", "wh", "wr"};
 
     for (int i = 0; i < digraphs.length; i++){
-      if (s.substring(0, 2).equals(digraphs[i])){
-        return s.substring(2) + digraphs[i] + "ay";
+      if (lower.substring(0, 2).equals(digraphs[i])){
+        return lower.substring(2) + digraphs[i] + "ay";
       }
     }
-    return pigLatinSimple(s);
+    return pigLatinSimple(lower);
   }
 
   public static String pigLatinBest(String s){
-    if (s.charAt(0)<'a' || s.charAt(0)>'z'){
-      return s;
+    String lower = s.toLowerCase();
+
+    if (lower.charAt(0)<'a' || lower.charAt(0)>'z'){
+      return lower;
     }
-    if (s.charAt(s.length()-1) < 'a' || s.charAt(s.length()-1) > 'z'){
-      return pigLatin(s.substring(0, s.length()-1)) + s.charAt(s.length()-1);
+    if (lower.charAt(lower.length()-1) < 'a' || lower.charAt(lower.length()-1) > 'z'){
+      return pigLatin(lower.substring(0, lower.length()-1)) + lower.charAt(lower.length()-1);
     }
-    return pigLatin(s);
+    return pigLatin(lower);
   }
 
   public static void main(String[] args){
