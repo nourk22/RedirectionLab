@@ -32,7 +32,7 @@ public class PigLatin{
 
       while (line.hasNext()){
         String word = line.next();
-        System.out.print(pigLatinSimple(word));
+        System.out.print(pigLatin(word));
         if (line.hasNext()){
           System.out.print(" ");
         }
