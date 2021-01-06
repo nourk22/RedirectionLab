@@ -19,7 +19,7 @@ public class PigLatin{
     String[] digraphs = {"bl", "br", "ch", "ck", "cl", "cr", "dr", "fl", "fr", "gh", "gl", "gr", "ng", "ph", "pl", "pr", "qu", "sc", "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th", "tr", "tw", "wh", "wr"};
 
     for (int i = 0; i < digraphs.length; i++){
-      if (lower.substring(0, 2).equals(digraphs[i])){
+      if (lower.length()>1 && lower.substring(0, 2).equals(digraphs[i])){
         return lower.substring(2) + digraphs[i] + "ay";
       }
     }
@@ -48,7 +48,7 @@ public class PigLatin{
 
       while (line.hasNext()){
         String word = line.next();
-        System.out.print(pigLatin(word));
+        System.out.print(pigLatinBest(word));
         if (line.hasNext()){
           System.out.print(" ");
         }
