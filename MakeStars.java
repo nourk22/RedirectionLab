@@ -6,7 +6,6 @@ public class MakeStars{
     for (int i=0; i<word.length(); i++){
       stars+="*";
     }
-    stars+=" ";
     return stars;
   }
 
@@ -15,12 +14,15 @@ public class MakeStars{
     Scanner n = new Scanner(System.in);
     while (n.hasNextLine()){
       String curr_line = n.nextLine();
-      Scanner test = new Scanner(curr_line);
+      Scanner line = new Scanner(curr_line);
 
 
-      while (test.hasNext()){
-        String word = test.next();
+      while (line.hasNext()){
+        String word = line.next();
         System.out.print(Word(word));
+        if (line.hasNext()){
+          System.out.print(" ");
+        }
       }
       System.out.println();
     }
