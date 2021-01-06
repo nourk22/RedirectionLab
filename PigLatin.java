@@ -22,6 +22,16 @@ public class PigLatin{
     return pigLatinSimple(s);
   }
 
+  public static String pigLatinBest(String s){
+    if (s.charAt(0)<'a' || s.charAt(0)>'z'){
+      return s;
+    }
+    if (s.charAt(s.length()-1) < 'a' || s.charAt(s.length()-1) > 'z'){
+      return pigLatin(s.substring(0, s.length()-1)) + s.charAt(s.length()-1);
+    }
+    return pigLatin(s);
+  }
+
   public static void main(String[] args){
 
     Scanner n = new Scanner(System.in);
